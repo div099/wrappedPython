@@ -20,7 +20,7 @@ self.onmessage = async (message) => { // when the worker.js receives a message..
 
 // creates a function in python using pyodide
 // pyodide.runPython runs python code and returns the value of the last expression
-// pyodide.runPython is a syncronous function (returns when its finished automatically)
+// pyodide.runPython is a synchronous function (returns when its finished automatically)
   const wrappedAdd = pyodide.runPython(`
   def add(a,b):
       return float(a) + float(b)
