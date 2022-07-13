@@ -3,13 +3,13 @@ importScripts("https://cdn.jsdelivr.net/pyodide/v0.20.0/full/pyodide.js");
 
 async function loadPyodideAndPackages() { // loads pyodide
   self.pyodide = await loadPyodide(); // run the function and wait for the result (base library)
-  await self.pyodide.loadPackage(["numpy", "pytz"]); // waits until these python packpages are loaded to continue
+  await self.pyodide.loadPackage(["numpy", "pytz", "micropip"]); // waits until these python packpages are loaded to continue
 
   //import reductus library with micropip
   await pyodide.runPythonAsync(`
   import micropip
-  await micropip.install("reductus")
-  import reductus
+  await micropip.install("./reductus-0.9.0-py3-none-any.whl")
+  from web_gui import api
   `)
 }
 
